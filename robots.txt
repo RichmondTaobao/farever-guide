@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://richmondtaobao.github.io/farever-guide/sitemap.xml
