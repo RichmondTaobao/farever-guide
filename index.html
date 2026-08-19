@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Farever Guide — Beginner Tips, Classes, Weapons & Builds</title>
+  <meta name="description" content="A fast, organized Farever guide hub with beginner tips, classes, weapons, builds and dungeon pages.">
+  <meta name="keywords" content="Farever guide,Farever beginner guide,Farever classes,Farever weapons,Farever builds,Farever dungeons">
+  <link rel="canonical" href="http://localhost:8080/">
+  <link rel="icon" href="favicon/favicon.svg">
+  <link rel="manifest" href="favicon/site.webmanifest">
+  <link rel="preload" as="image" href="assets/game/farever-hero.png">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="nav">
+    <div class="wrap nav-inner">
+      <a class="brand" href="index.html" aria-label="Farever Guide home"><img src="assets/farever-guide-logo.png" alt="Farever Guide"></a>
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="pages/beginner-guide.html" data-i18n="nav.beginner">Beginner Guide</a><a href="pages/classes.html" data-i18n="nav.classes">Classes</a><a href="pages/weapons.html" data-i18n="nav.weapons">Weapons</a><a href="pages/builds.html" data-i18n="nav.builds">Builds</a><a href="pages/dungeons.html" data-i18n="nav.dungeons">Dungeons</a>
+      </nav>
+      <label class="language-picker"><span class="sr-only">Language</span><select data-language aria-label="Language"><option value="en">English</option><option value="fr">Français</option><option value="de">Deutsch</option><option value="ja">日本語</option><option value="zh-CN">简体中文</option><option value="es">Español</option><option value="pt-BR">Português</option><option value="ko">한국어</option></select></label>
+      <button class="theme" data-theme-toggle aria-label="Toggle color theme">☀️</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-shade"></div>
+      <div class="wrap hero-content">
+        <span class="eyebrow"><i></i> <span data-i18n="hero.eyebrow">Early Access field guide</span></span>
+        <h1><span data-i18n="hero.title">Forge your path</span><br><em data-i18n="hero.subtitle">through Siagarta.</em></h1>
+        <p class="lead" data-i18n="hero.lead">Clear answers for Farever's classes, weapons, builds and dungeons—built for adventurers who would rather explore than search.</p>
+        <div class="actions">
+          <a class="btn primary" href="https://store.steampowered.com/app/3672400/Farever/" target="_blank" rel="noopener noreferrer"><span data-i18n="hero.start">Play Farever</span> <span>↗</span></a>
+          <a class="btn ghost" href="#videos" data-i18n="hero.watch">Watch gameplay</a>
+        </div>
+        <div class="hero-stats" aria-label="Game features">
+          <span><b>CO-OP</b> Adventure</span><span><b>OPEN</b> World</span><span><b>ACTION</b> Combat</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section guide-section" id="guides">
+      <div class="wrap">
+        <div class="section-head">
+          <div><span class="overline" data-i18n="guides.overline">Choose your objective</span><h2 data-i18n="guides.title">The adventurer's field notes</h2></div>
+          <p data-i18n="guides.intro">Start with the problem in front of you, then follow the trail to your next upgrade or dungeon clear.</p>
+        </div>
+        <div class="quest-grid">
+          <a class="quest featured" href="pages/beginner-guide.html"><div class="quest-art" style="background-image:url('assets/game/farever-world.jpg')"></div><div class="quest-copy"><span class="quest-no">01 · New adventurers</span><h3>Beginner Guide</h3><p>Learn the first-session route, core systems and mistakes that waste time.</p><b>Start here →</b></div></a>
+          <a class="quest" href="pages/classes.html"><div class="quest-icon">⚔</div><span class="quest-no">02 · Find your role</span><h3>Classes</h3><p>Compare playstyles, strengths and trade-offs before you commit.</p><b>Choose a class →</b></a>
+          <a class="quest" href="pages/weapons.html"><div class="quest-icon">✦</div><span class="quest-no">03 · Shape your combat</span><h3>Weapons</h3><p>Match weapon skills with progression stage and playstyle.</p><b>Enter the arsenal →</b></a>
+          <a class="quest" href="pages/builds.html"><div class="quest-icon">◆</div><span class="quest-no">04 · Refine your path</span><h3>Builds</h3><p>Connect class, skills, gear priorities and combat goals.</p><b>Forge a build →</b></a>
+          <a class="quest wide" href="pages/dungeons.html"><div class="quest-art" style="background-image:url('assets/game/farever-combat.jpg')"></div><div class="quest-copy"><span class="quest-no">05 · Face the depths</span><h3>Dungeons & Bosses</h3><p>Prepare your party, understand the objective and avoid the common wipe points.</p><b>Prepare your run →</b></div></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section videos-section" id="videos">
+      <div class="wrap">
+        <div class="section-head light-head">
+          <div><span class="overline" data-i18n="videos.overline">Community watchlist</span><h2 data-i18n="videos.title">See Farever in motion</h2></div>
+          <p data-i18n="videos.intro">Relevant, high-engagement picks led by the official trailer, practical beginner help and real gameplay.</p>
+        </div>
+        <div class="video-grid">
+          <article class="video-card featured-video">
+            <div class="video-frame"><iframe src="https://www.youtube-nocookie.com/embed/jFHLwWM_7Xk" title="Farever Official Early Access Launch Trailer" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
+            <div class="video-copy"><span class="pill official">Official</span><h3>Early Access Launch Trailer</h3><p>The clearest introduction to Farever's world, traversal and combat fantasy.</p></div>
+          </article>
+          <article class="video-card">
+            <div class="video-frame"><iframe src="https://www.youtube-nocookie.com/embed/CA82S2M5dnU" title="Farever Beginner Guide" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
+            <div class="video-copy"><span class="pill">Popular guide</span><h3>Beginner's Guide</h3><p>Essential tips and systems the game does not fully explain.</p></div>
+          </article>
+          <article class="video-card">
+            <div class="video-frame"><iframe src="https://www.youtube-nocookie.com/embed/JNMtbfX3o6I" title="Farever First Look Gameplay" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
+            <div class="video-copy"><span class="pill">Gameplay</span><h3>8 Minutes of First-Look Gameplay</h3><p>A direct look at exploration, weapons and the pace of combat.</p></div>
+          </article>
+        </div>
+        <p class="video-note">Selection reviewed August 2026 · YouTube engagement changes over time. Official and strongly relevant videos are prioritized.</p>
+      </div>
+    </section>
+
+    <section class="section world-section">
+      <div class="wrap world-grid">
+        <div class="world-image"><img src="assets/game/farever-adventure.jpg" alt="Farever adventurers exploring the fantasy world" loading="lazy"></div>
+        <div><span class="overline">An evolving world</span><h2>Adventure with confidence.</h2><p class="lead">Farever is an Early Access game. Builds, balance and progression can change—so every useful guide needs a clear verification trail.</p><div class="trust-list"><div><b>01</b><span><strong>Official facts first</strong>Steam and Shiro Games for launch features and updates.</span></div><div><b>02</b><span><strong>Patch-aware advice</strong>Build and class recommendations dated when verified.</span></div><div><b>03</b><span><strong>No invented stats</strong>Unknown details stay marked until they can be sourced.</span></div></div></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer"><div class="wrap footer-inner"><img src="assets/farever-guide-logo.png" alt="Farever Guide"><p>Independent fan-made guide. Farever and related assets belong to Shiro Games.</p><a href="https://store.steampowered.com/app/3672400/Farever/" target="_blank" rel="noopener">Official Steam page ↗</a></div></footer>
+  <script src="locale-content.js"></script><script src="i18n.js"></script><script src="script.js"></script>
+</body>
+</html>
