@@ -2,7 +2,7 @@ import fs from 'node:fs/promises';
 import path from 'node:path';
 
 const root = process.cwd();
-const files = ['index.html','pages/beginner-guide.html','pages/classes.html','pages/weapons.html','pages/builds.html','pages/dungeons.html'];
+const files = ['index.html','pages/beginner-guide.html','pages/classes.html','pages/weapons.html','pages/builds.html','pages/dungeons.html','about.html','contact.html','privacy.html','terms.html','disclaimer.html'];
 const locales = ['fr','de','ja','zh-CN','es','pt-BR','ko'];
 const ignored = new Set(['☀️','→','↗','⚔','✦','◆','01','02','03','04','05','English','Français','Deutsch','日本語','简体中文','Español','Português','한국어']);
 
@@ -17,28 +17,32 @@ for (const file of files) {
 }
 const source = [...strings];
 const output = {en:Object.fromEntries(source.map(text => [text,text]))};
+global.window = {};
+try {
+  await import(`${path.join(root,'locale-content.js')}?cache=${Date.now()}`);
+} catch {}
+const previous = global.window.FAREVER_TEXT || {};
+const pause = ms => new Promise(resolve => setTimeout(resolve,ms));
 
-async function translateBatch(batch, locale) {
-  const markers = batch.map((_,i) => `ZXQFV${String(i).padStart(3,'0')}ZXQ`);
-  const input = batch.map((text,i) => `${markers[i]} ${text}`).join('\n');
-  const body = new URLSearchParams({client:'gtx',sl:'en',tl:locale,dt:'t',q:input});
-  const response = await fetch('https://translate.googleapis.com/translate_a/single',{method:'POST',headers:{'content-type':'application/x-www-form-urlencoded;charset=UTF-8'},body});
-  if (!response.ok) throw new Error(`${locale}: HTTP ${response.status}`);
-  const data = await response.json();
-  const translated = data[0].map(part => part[0]).join('');
-  const result = [];
-  for (let i=0;i<batch.length;i++) {
-    const start = translated.indexOf(markers[i]);
-    const end = i+1<batch.length ? translated.indexOf(markers[i+1]) : translated.length;
-    if (start<0 || end<0) throw new Error(`${locale}: marker ${i} missing`);
-    result.push(translated.slice(start+markers[i].length,end).trim());
+async function translateOne(text, locale) {
+  if (previous[locale]?.[text]) return previous[locale][text];
+  for (let attempt=0;attempt<6;attempt++) {
+    const body = new URLSearchParams({client:'gtx',sl:'en',tl:locale,dt:'t',q:text});
+    const response = await fetch('https://translate.googleapis.com/translate_a/single',{method:'POST',headers:{'content-type':'application/x-www-form-urlencoded;charset=UTF-8'},body});
+    if (response.ok) {
+      const data = await response.json();
+      await pause(250);
+      return data[0].map(part => part[0]).join('').trim();
+    }
+    if (response.status !== 429) throw new Error(`${locale}: HTTP ${response.status}`);
+    await pause(2000 * (attempt + 1));
   }
-  return result;
+  throw new Error(`${locale}: translation service remained rate limited`);
 }
 
 for (const locale of locales) {
   const translated = [];
-  for (let i=0;i<source.length;i+=20) translated.push(...await translateBatch(source.slice(i,i+20),locale));
+  for (const text of source) translated.push(await translateOne(text,locale));
   output[locale] = Object.fromEntries(source.map((text,i) => [text,translated[i]]));
   process.stdout.write(`${locale}: ${translated.length}\n`);
 }

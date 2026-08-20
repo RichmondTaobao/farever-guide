@@ -1,25 +1,28 @@
-# Farever Guide — Local Prototype
+# Farever Guide
 
-## Run locally
-From this folder:
+Independent editorial game guide published at:
+
+https://richmondtaobao.github.io/farever-guide/
+
+## Local development
 
 ```bash
 python3 -m http.server 8080
 ```
 
-Then open:
+Open http://localhost:8080.
 
-http://localhost:8080
+## Site features
 
-## Recommended iCloud location on macOS
-`~/Library/Mobile Documents/com~apple~CloudDocs/Projects/my-website/game-site-local`
+- Homepage and focused guides for beginners, classes, weapons, builds and dungeons
+- Language switching for English, French, German, Japanese, Simplified Chinese, Spanish, Brazilian Portuguese and Korean
+- Privacy, cookie, terms, disclaimer, about and contact information
+- Consent-gated Google Analytics 4 integration
+- Google Search Console verification, sitemap and robots directives
 
-## Structure
-- `index.html` homepage
-- `pages/` long-tail guide pages
-- `content/首页信息.md` homepage research material
-- `content/长尾词-页面矩阵.md` homework matrix
-- `content/inner-pages/` research-source templates
-- `favicon/` favicon + webmanifest
+## Checks
 
-This version is intentionally local-only and contains no ads, analytics, payment, domain, or publishing configuration.
+```bash
+npx playwright test
+xmllint --noout sitemap.xml
+```
